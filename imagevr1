@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie de Photos Interactive</title>
+    <style>
+        #image {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="image">Survolez une image ci-dessous pour l'afficher ici</div>
+    <div>
+        <img class="thumbnail" src="https://www.homes.com/blog/wp-content/uploads/2024/05/Hudson-Yards-sits-along-Manhattanaposs-western-side-scaled.jpg" alt="New York City 1" onmouseover="upDate(this)" onmouseout="unDo()">
+        <img class="thumbnail" src="https://cdn.pixabay.com/photo/2022/11/07/20/23/new-york-7577186_1280.jpg" alt="New York City 2" onmouseover="upDate(this)" onmouseout="unDo()">
+        <img class="thumbnail" src="https://media.istockphoto.com/id/1406960186/photo/the-skyline-of-new-york-city-united-states.jpg?s=612x612&w=0&k=20&c=yZJXNdzq3d5bKgvVzPBahBujpbVUXFyjyl9FN9L7esM=" alt="New York City 3" onmouseover="upDate(this)" onmouseout="unDo()">
+    </div>
+
+    <script>
+        function upDate(previewPic) {
+            console.log("Mouse over event triggered");
+            console.log("Image source:", previewPic.src);
+            console.log("Image alt:", previewPic.alt);
+            document.getElementById("image").innerHTML = previewPic.alt;
+            document.getElementById("image").style.backgroundImage = "url('" + previewPic.src + "')";
+        }
+
+        function unDo() {
+            document.getElementById("image").style.backgroundImage = "none";
+            document.getElementById("image").innerHTML = "Survolez une image ci-dessous pour l'afficher ici";
+        }
+    </script>
+</body>
+</html>
